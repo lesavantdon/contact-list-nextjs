@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import ContactForm from '@/components/ContactForm';
 import ContactsList from '@/components/ContactsList';
-import styles from '@/styles/page.module.css';
+import styles from '../styles/page.module.css';
 
 const Home = () => {
   const [contacts, setContacts] = useState([]);
