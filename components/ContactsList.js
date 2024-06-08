@@ -5,8 +5,9 @@ import styles from '@/styles/page.module.css';
 const ContactsList = ({ contacts }) => {
   const router = useRouter();
 
-  const handleContactClick = (contactId) => {
-    router.push(`/contactInfoPage/${contactId}`);
+  const handleContactClick = (id) => {
+    router.push(`/contactInfo/${id}`);
+    console.log (`/contactInfo/${id}`);
   };
 
   return (

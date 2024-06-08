@@ -7,11 +7,13 @@ const ContactInfoView = () => {
   const { id } = router.query;
   const [contact, setContact] = useState(null);
 
+
   useEffect(() => {
     const fetchContact = async () => {
       try {
         if (id) {
           const response = await fetch(`/api/contactsAPI/${id}`);
+          console.log(`/api/contactsAPI/${id}`);
           if (response.ok) {
             const data = await response.json();
             setContact(data);

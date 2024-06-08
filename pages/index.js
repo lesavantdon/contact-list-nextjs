@@ -1,5 +1,3 @@
-// pages/index.js
-
 import React, { useState, useEffect } from 'react';
 import { useRouter} from 'next/router';
 import styles from '@/styles/page.module.css';
