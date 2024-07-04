@@ -3,21 +3,20 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import ContactInfoView from '@/components/ContactInfoView';
+import styles from '@/styles/page.module.css';
 
 const ContactIdPage = () => {
   const router = useRouter();
   const {id} = router.query;
 
-
-  const handleHomeClick = () => {
-    router.push('/');
-  };
-
   return (
     <div>
-      <h1>Contact Info Page</h1>
+      
+
+      <h1 className = {styles.h2} >Contact Info Page</h1>
+      
       <ContactInfoView id = {id}/>
-      <button type="button" onClick={handleHomeClick}>Home</button>
+     
     </div>
   );
 };

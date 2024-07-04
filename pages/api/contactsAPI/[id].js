@@ -1,4 +1,4 @@
-let contacts = [];
+import contacts from '../../data/contacts';
 
 export default function handler(req, res) {
   const { id } = req.query; // Extract the ID from the URL parameter

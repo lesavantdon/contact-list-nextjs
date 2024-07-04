@@ -3,17 +3,34 @@ import { v4 as uuidv4 } from 'uuid';
 import { useRouter } from 'next/router';
 import styles from '@/styles/page.module.css';
 
-
 const AddContactPage = () => {
- 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [image_url, setImageUrl] = useState('');
   const [phone_number, setPhoneNumber] = useState('');
+  const [error, setError] = useState('');
   const router = useRouter();
+
+  const validateEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
+
+    // Validate inputs
+    if (!name || !email || !image_url || !phone_number) {
+      setError('All fields are required.');
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+
     const contact = {
       id: uuidv4(),
       name,
@@ -35,7 +52,6 @@ const AddContactPage = () => {
       setEmail('');
       setImageUrl('');
       setPhoneNumber('');
-
       router.push('/');
     } else {
       console.error('Failed to add contact');
@@ -45,6 +61,7 @@ const AddContactPage = () => {
   return (
     <form onSubmit={handleSubmit}>
       <h1>Add a New Contact</h1>
+      {error && <p className={styles.error}>{error}</p>}
       <div className={styles.formGroup}>
         <label>Name</label>
         <input
@@ -84,7 +101,6 @@ const AddContactPage = () => {
         />
       </div>
       <button type="submit" className={styles.btn}>ADD NEW CONTACT</button>
-      
     </form>
   );
 };

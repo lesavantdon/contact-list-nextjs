@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 import styles from '@/styles/page.module.css';
 
 const ContactInfoView = () => {
@@ -7,13 +8,15 @@ const ContactInfoView = () => {
   const { id } = router.query;
   const [contact, setContact] = useState(null);
 
+  const handleHomeClick = () => {
+    router.push('/');
+  };
 
   useEffect(() => {
     const fetchContact = async () => {
       try {
         if (id) {
           const response = await fetch(`/api/contactsAPI/${id}`);
-          console.log(`/api/contactsAPI/${id}`);
           if (response.ok) {
             const data = await response.json();
             setContact(data);
@@ -34,13 +37,28 @@ const ContactInfoView = () => {
   }
 
   return (
-    <div className={styles.contactInfo}>
-      <h1>{contact.name}</h1>
-      <p>Email: {contact.email}</p>
-      <p>Phone: {contact.phone_number}</p>
-      <img src={contact.image_url} alt={contact.name} />
+    <div className={styles.centeredContainer}>
+      <div className={styles.contactInfo}>
+        <h2>{contact.name}</h2>
+        <img src={contact.image_url} style={{ width: '175px', height: '175px' }} />
+        <p>{contact.email}</p>
+        <p>{contact.phone_number}</p>
+        <button type="button" className={styles.homeButton} onClick={handleHomeClick}>
+          Home
+        </button>
+      </div>
     </div>
   );
+};
+
+ContactInfoView.propTypes = {
+  id: PropTypes.string,
+  contact: PropTypes.shape({
+    name: PropTypes.string,
+    email: PropTypes.string,
+    image_url: PropTypes.string,
+    phone_number: PropTypes.string,
+  }),
 };
 
 export default ContactInfoView;

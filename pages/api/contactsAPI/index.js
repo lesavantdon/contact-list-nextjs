@@ -1,4 +1,4 @@
-let contacts = [];
+import contacts from '../../data/contacts';
 
 export default function handler(req, res) {
   if (req.method === 'GET') {

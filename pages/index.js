@@ -38,8 +38,10 @@ const Home = () => {
 
   return (
     <div>
-      <h1>All Contacts</h1>
+      <h1 className= {styles.h1}>All Contacts</h1>
+     <div className = {styles.buttonContainer}>
       <button className={styles.btn} onClick={handleAddContact}>Add Contact</button>
+     </div>
       <div>
         <input
           type="text"
@@ -48,12 +50,13 @@ const Home = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <div style = {{ display: 'flex', justifyContent: 'space-between'}}>
-        <h1>Profile Pic</h1>
-          <h1>Name</h1>
-          <h1>Email</h1>
-          <h1> Phone </h1>
+        <div className = {styles.header} >
+        <h2>Profile Pic</h2>
+          <h2>Name</h2>
+          <h2>Email</h2>
+          <h2> Phone </h2>
           </div>
+          <hr/>
         
          <ContactsList contacts = {filteredContacts}/>
       </div>

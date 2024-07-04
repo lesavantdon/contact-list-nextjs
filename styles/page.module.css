@@ -1,10 +1,50 @@
 /* styles/page.module.css */
+/* ContactInfo.module.css */
+.h2 {
+  /* Your CSS styles here */
+  text-align: center;
+  margin-top: 20px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  margin-bottom: 20px; /* Adjust as needed */
+}
+
+.circularImage {
+  
+  width: 100px; /* Adjust the size as needed */
+  height: 100px; /* Ensure the height is equal to the width */
+  border-radius: 50%;
+  object-fit: cover; /* Ensures the image covers the element, maintaining its aspect ratio */
+}
+
+.centeredContainer 
+
+{
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 75vh; /* Full viewport height to center vertically */
+}
 
 .formGroup {
   margin-bottom: 1rem;
 }
 
-.btn {
+.h1 {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+
+.btn
+ {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
   background-color: blue;
   color: white;
   padding: 0.5rem 1rem;
@@ -18,11 +58,47 @@
 
 .contactsList {
   list-style-type: none;
-  padding: 0;
+  padding: 10;
 }
 
 .contactsListItem {
-  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f0f0f0;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contactsListItem img {
+  
+  width: 50px;
+  height: 50px;
+  margin-right: 45px; /* Add margin between image and text */
+}
+
+.contactsListItem span {
+  display: flex;
+}
+.contactDetails {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.editButton {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.editButton:hover {
+  background-color: #0056b3;
 }
 
 .inputText {
@@ -34,6 +110,32 @@
 }
 
 .header {
-  display: in-line;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
+
 }
+
+.header h2 {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto auto;
+  gap: 45px;
+  flex: 1; /* Adjust to match the span in .contactsListItem */
+  text-align: center;
+}
+
+
+.contactInfo {
+  text-align: center;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* page.module.css */
+.error {
+  color: red;
+  margin-bottom: 10px;
+}
+
